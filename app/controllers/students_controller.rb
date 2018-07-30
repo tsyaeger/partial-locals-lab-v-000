@@ -22,8 +22,9 @@ class StudentsController < ApplicationController
 
   def index
     # @students = Student.all 
-    puts " params: #{params.inspect}"
-    @students = Student.where(name LIKE ?, params[:search])
+    # puts " params: #{params.inspect}"
+    # @students = Student.where("name LIKE ?", params[:search].downcase)
+    @students = Student.search(search_name)
   end
 
   def student_params
